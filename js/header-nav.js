@@ -8,14 +8,14 @@ function update_header(colourr) {
 
   if (!header_shrinked && (window.scrollY > 112)) {
       	$('.logo').addClass('shrinked');
-        $('.nav_link').addClass('shrinked');
+        $('.nav-link').addClass('shrinked');
         $('#nav_menu').addClass('shrinked');
         $('#header_button').addClass('shrinked');
         header_shrinked = true;
       }
       if (header_shrinked && (window.scrollY <= 112)) {
         $('.logo').removeClass('shrinked');
-        $('.nav_link').removeClass('shrinked');
+        $('.nav-link').removeClass('shrinked');
         $('#nav_menu').removeClass('shrinked');
         $('#header_button').removeClass('shrinked');
         header_shrinked = false;
