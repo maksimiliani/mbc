@@ -62,6 +62,7 @@ function update_header(colourr) {
         }
 
         header_el[0].style.backgroundColor = convertHex(new_colourr, 80);
+        console.log(new_colourr);
         console.log(convertHex(new_colourr, 80));
 
         if (isNight(new_colourr)) {
