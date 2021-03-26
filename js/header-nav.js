@@ -24,8 +24,8 @@ function update_header(colourr) {
       0.587 * (g * g) +
       0.114 * (b * b)
     );
-    console.log(hsp);
-    if (hsp>185) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark
+    
+    if (hsp>152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
       return false; //'day'
     }
     else {
