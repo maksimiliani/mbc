@@ -48,7 +48,8 @@ function update_header(colourr) {
         }
 
         //header_el[0].style.backgroundColor = convertHex(new_colourr, 80);
-        $('.navbar-master .navbar-bg').style.backgroundColor = new_colourr;
+        var navbar_bg = $('.navbar-master .navbar-bg');
+        navbar_bg[0].style.backgroundColor = new_colourr;
 
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
