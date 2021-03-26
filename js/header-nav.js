@@ -47,7 +47,7 @@ function update_header(colourr) {
           new_colourr = colourr;
         }
 
-        header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.8)');
+        header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.8)';
 
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
