@@ -47,9 +47,9 @@ function update_header(colourr) {
           new_colourr = colourr;
         }
 
-        var RGB = new_colourr;
-        var RGBA = '('+parseInt(RGB.substring(1,3),16)+','+parseInt(RGB.substring(3,5),16)+','+parseInt(RGB.substring(5,7),16)+','+'0.8'+')';
-        header_el[0].style.backgroundColor = new_c_rgba;
+        var rgb_p = new_colourr;
+        var rgba_p = '('+parseInt(rgb_p.substring(1,3),16)+','+parseInt(rgb_p.substring(3,5),16)+','+parseInt(rgb_p.substring(5,7),16)+','+'0.8'+')';
+        header_el[0].style.backgroundColor = rgba_p;
 
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
