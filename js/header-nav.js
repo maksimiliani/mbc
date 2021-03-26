@@ -92,10 +92,6 @@ $(document).ready(function() {
   });
 
   //update_header(null);
-  $('.navbar-master .nav-link').addClass('night');
-  $('.navbar-master .logo').addClass('night');
-  $('.navbar-master .button').addClass('night');
-
   $(".w-nav-overlay").attrchange({
     trackValues: true,
     callback: function(event) {
