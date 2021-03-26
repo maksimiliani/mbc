@@ -24,7 +24,7 @@ function update_header(colourr) {
       0.587 * (g * g) +
       0.114 * (b * b)
     );
-    
+
     if (hsp>152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
       return false; //'day'
     }
@@ -46,7 +46,7 @@ function update_header(colourr) {
         if ((i == 0) && (colourr != null)) {
           new_colourr = colourr;
         }
-        header_el[0].style.backgroundColor = new_colourr;
+        //header_el[0].style.backgroundColor = new_colourr;
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
           $('.navbar-master .logo').addClass('night');
