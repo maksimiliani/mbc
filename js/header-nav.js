@@ -47,8 +47,8 @@ function update_header(colourr) {
           new_colourr = colourr;
         }
 
-        var new_c_matches = new_colourr.match(/#([\da-f]{2})([\da-f]{2})([\da-f]{2})/i);
-        var new_c_rgba = 'rgba(' + new_c_matches.slice(1).map(function(m) { return parseInt(m, 16); }).concat('0.8') + ')';
+        var RGB = new_colourr;
+        var RGBA = '('+parseInt(RGB.substring(1,3),16)+','+parseInt(RGB.substring(3,5),16)+','+parseInt(RGB.substring(5,7),16)+','+'0.8'+')';
         header_el[0].style.backgroundColor = new_c_rgba;
 
         if (isNight(new_colourr)) {
