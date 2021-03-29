@@ -8,7 +8,7 @@ var menu_bg;
 
 function update_header(colourr) {
   if (menu_opened) return;
-  
+
   if (!header_shrinked && (window.scrollY > 112)) {
     $('.logo').addClass('shrinked');
     $('.nav-link').addClass('shrinked');
@@ -94,6 +94,7 @@ $(document).ready(function() {
       menu_bg[0].style.display = "none";
       menu_opened = false;
       update_header(null);
+      console.log("menu-closed");
     } else {
       $('.navbar-master').addClass('opened');
       menu_bg[0].style.display = "block";
@@ -102,6 +103,7 @@ $(document).ready(function() {
       $('.navbar-master .logo').removeClass('night');
       $('.navbar-master .button').removeClass('night');
       $('.navbar-master .menu-button').removeClass('night');
+      console.log("menu-opened");
     }
   });
 
