@@ -1,2 +1,4 @@
 .rounded.black:hover > a {color: #79B316;}
 .navbar-master {-webkit-backdrop-filter: blur(100px); backdrop-filter: blur(100px);}
+.input-field::placeholder {color: rgba(42,40,41,0.5);}
+.input-field:focus {outline: none !important;}

@@ -4,6 +4,7 @@ var locked = false;
 var sections_color;
 var header_shrinked = false;
 var menu_opened = false;
+var menu_bg;
 
 function update_header(colourr) {
 
@@ -85,13 +86,16 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
+  menu_bg = document.getElementsByClassName("menu-opened-bg");
   $(".menu-button").click(function() {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
+      menu_bg[0].style.display = "none";
       menu_opened = false;
       update_header(null);
     } else {
       $('.navbar-master').addClass('opened');
+      menu_bg[0].style.display = "block";
       menu_opened = true;
       $('.navbar-master .nav-link').removeClass('night');
       $('.navbar-master .logo').removeClass('night');
