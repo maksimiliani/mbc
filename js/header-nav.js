@@ -3,6 +3,7 @@ var header_el;
 var locked = false;
 var sections_color;
 var header_shrinked = false;
+var menu_opened = false;
 
 function update_header(colourr) {
 
@@ -69,10 +70,12 @@ function update_header(colourr) {
           $('.navbar-master .nav-link').addClass('night');
           $('.navbar-master .logo').addClass('night');
           $('.navbar-master .button').addClass('night');
+          $('.navbar-master .menu-button').addClass('night');
         } else {
           $('.navbar-master .nav-link').removeClass('night');
           $('.navbar-master .logo').removeClass('night');
           $('.navbar-master .button').removeClass('night');
+          $('.navbar-master .menu-button').removeClass('night');
         }
         locked = false;
         break;
@@ -81,6 +84,21 @@ function update_header(colourr) {
 }
 
 $(document).ready(function() {
+
+  $(".menu-button").click(function() {
+    if (menu_opened) {
+      $('.navbar-master').removeClass('opened');
+      menu_opened = false;
+      update_header(null);
+    } else {
+      $('.navbar-master').addClass('opened');
+      menu_opened = true;
+      $('.navbar-master .nav-link').removeClass('night');
+      $('.navbar-master .logo').removeClass('night');
+      $('.navbar-master .button').removeClass('night');
+      $('.navbar-master .menu-button').removeClass('night');
+    }
+  });
 
   sections_color = document.getElementsByClassName("section");
 
@@ -102,6 +120,7 @@ $(document).ready(function() {
           $('.navbar-master .nav-link').addClass('night');
           $('.navbar-master .logo').addClass('night');
           $('.navbar-master .button').addClass('night');
+          $('.navbar-master .menu-button').addClass('night');
         }
       }
     });
