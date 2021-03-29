@@ -101,7 +101,7 @@ $(document).ready(function() {
     } else {
       $('.navbar-master').addClass('opened');
       menu_bg[0].style.display = "block";
-      update_header('FFFFFF');
+      update_header('rgb(255, 255, 255)');
       menu_opened = true;
       console.log("menu-opened");
     }
