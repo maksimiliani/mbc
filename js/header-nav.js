@@ -4,7 +4,7 @@ var locked = false;
 var sections_color;
 var header_shrinked = false;
 var menu_opened = false;
-var menu_bg;
+//var menu_bg;
 
 function update_header(colourr) {
   if (menu_opened) return;
@@ -90,17 +90,17 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-  menu_bg = document.getElementsByClassName("menu-opened-bg");
+  //menu_bg = document.getElementsByClassName("menu-opened-bg");
   $(".menu-button").click(function() {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
-      menu_bg[0].style.display = "none";
+      //menu_bg[0].style.display = "none";
       menu_opened = false;
       update_header(null);
       console.log("menu-closed");
     } else {
       $('.navbar-master').addClass('opened');
-      menu_bg[0].style.display = "block";
+      //menu_bg[0].style.display = "block";
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
       console.log("menu-opened");
@@ -117,19 +117,20 @@ $(document).ready(function() {
   });
 
   //update_header(null);
-  $(".w-nav-overlay").attrchange({
-    trackValues: true,
-    callback: function(event) {
-      var mobile_menu = document.getElementsByClassName("w-nav-overlay");
-        if (mobile_menu[0].style.display === "none") {
-          update_header(null);
-        } else {
-          $('.navbar-master .nav-link').addClass('night');
-          $('.navbar-master .logo').addClass('night');
-          $('.navbar-master .button').addClass('night');
-          $('.navbar-master .menu-button').addClass('night');
-        }
-      }
-    });
+
+  // $(".w-nav-overlay").attrchange({
+  //   trackValues: true,
+  //   callback: function(event) {
+  //     var mobile_menu = document.getElementsByClassName("w-nav-overlay");
+  //       if (mobile_menu[0].style.display === "none") {
+  //         update_header(null);
+  //       } else {
+  //         $('.navbar-master .nav-link').addClass('night');
+  //         $('.navbar-master .logo').addClass('night');
+  //         $('.navbar-master .button').addClass('night');
+  //         $('.navbar-master .menu-button').addClass('night');
+  //       }
+  //     }
+  //   });
 
 });
