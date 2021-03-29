@@ -69,6 +69,8 @@ function update_header(colourr) {
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
         }
 
+        console.log(new_colourr);
+
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
           $('.navbar-master .logo').addClass('night');
