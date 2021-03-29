@@ -97,13 +97,13 @@ $(document).ready(function() {
       //menu_bg[0].style.display = "none";
       menu_opened = false;
       update_header(null);
-      //$(".nav_menu").hide();
+      $(".nav_menu").hide();
     } else {
       $('.navbar-master').addClass('opened');
       //menu_bg[0].style.display = "block";
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
-      //$(".nav_menu").show();
+      $(".nav_menu").show();
     }
   });
 
