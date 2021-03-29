@@ -62,11 +62,12 @@ function update_header(colourr) {
       offset2 = sections_color[i+1].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
       if ((window.scrollY >= offset1) && (window.scrollY < offset2)) {
         var new_colourr = getComputedStyle(sections_color[i], null).backgroundColor;
-        if ((i == 0) && (colourr != null)) {
+        if (colourr != null) {
           new_colourr = colourr;
+          header_el[0].style.backgroundColor = new_colourr;
+        } else {
+          header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
         }
-
-        header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
 
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
@@ -98,11 +99,8 @@ $(document).ready(function() {
     } else {
       $('.navbar-master').addClass('opened');
       menu_bg[0].style.display = "block";
+      update_header('FFFFFF');
       menu_opened = true;
-      $('.navbar-master .nav-link').removeClass('night');
-      $('.navbar-master .logo').removeClass('night');
-      $('.navbar-master .button').removeClass('night');
-      $('.navbar-master .menu-button').removeClass('night');
       console.log("menu-opened");
     }
   });
