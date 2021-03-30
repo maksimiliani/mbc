@@ -108,6 +108,7 @@ $(document).ready(function() {
       locked = true;
       setTimeout(update_header(null), 150);
     }
+    console.log(locked);
   });
 
   update_header(null);
