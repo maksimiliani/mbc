@@ -54,7 +54,6 @@ function update_header(colourr) {
 
   header_el = $(".navbar-master");
   bodyRect = document.body.getBoundingClientRect();
-  console.log(bodyRect);
 
   for (var i=0; i < sections_color.length; i++) {
     var offset1 = sections_color[i].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
@@ -108,9 +107,9 @@ $(document).ready(function() {
       locked = true;
       setTimeout(update_header(null), 150);
     }
-    console.log(locked);
   });
 
+  let locked_trash = setInterval(() => function() {locked = false;}, 2000);
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
