@@ -69,8 +69,6 @@ function update_header(colourr) {
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
         }
 
-        console.log(new_colourr);
-
         if (isNight(new_colourr)) {
           $('.navbar-master .nav-link').addClass('night');
           $('.navbar-master .logo').addClass('night');
@@ -88,19 +86,6 @@ function update_header(colourr) {
     }
 }
 
-var startY = 0;
-document.addEventListener('touchstart', function(e) {
-    startY = e.touches[0].screenY;
-});
-
-document.addEventListener('touchmove', function(e) {
-    var amountMovedY = e.touches[0].screenY - startY;
-    if (amountMovedY > 0) {
-        e.preventDefault();
-    }
-  // Disable move action when movement amount is negative (user tries to positive to top!)
-});
-
 $(document).ready(function() {
 
   $(".menu-button").click(function() {
@@ -108,12 +93,10 @@ $(document).ready(function() {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
       update_header(null);
-      $(".nav_menu").hide();
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
-      $(".nav_menu").show();
     }
   });
 
