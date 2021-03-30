@@ -53,6 +53,7 @@ function update_header(colourr) {
   }
 
   header_el = $(".navbar-master");
+  bodyRect = document.body.getBoundingClientRect();
 
   for (var i=0; i < sections_color.length; i++) {
     var offset1 = sections_color[i].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
@@ -87,6 +88,19 @@ function update_header(colourr) {
     }
 }
 
+var startY = 0;
+document.addEventListener('touchstart', function(e) {
+    startY = e.touches[0].screenY;
+});
+
+document.addEventListener('touchmove', function(e) {
+    var amountMovedY = e.touches[0].screenY - startY;
+    if (amountMovedY > 0) {
+        e.preventDefault();
+    }
+  // Disable move action when movement amount is negative (user tries to positive to top!)
+});
+
 $(document).ready(function() {
 
   $(".menu-button").click(function() {
@@ -112,7 +126,6 @@ $(document).ready(function() {
     }
   });
 
-  bodyRect = document.body.getBoundingClientRect();
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
