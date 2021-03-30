@@ -109,7 +109,7 @@ $(document).ready(function() {
     }
   });
 
-  let locked_trash = setInterval(() => function() {locked = false;}, 2000);
+  setInterval(() => function() {locked = false;}, 2000);
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
