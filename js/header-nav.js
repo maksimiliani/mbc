@@ -109,7 +109,7 @@ $(document).ready(function() {
     }
   });
 
-  setInterval(function(){ console.log(locked); locked = false; }, 2000);
+  setInterval(function(){ locked = false; update_header(null); }, 1000);
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
