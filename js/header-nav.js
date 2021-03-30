@@ -90,17 +90,14 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-  //menu_bg = document.getElementsByClassName("menu-opened-bg");
   $(".menu-button").click(function() {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
-      //menu_bg[0].style.display = "none";
       menu_opened = false;
       update_header(null);
       $(".nav_menu").hide();
     } else {
       $('.navbar-master').addClass('opened');
-      //menu_bg[0].style.display = "block";
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
       $(".nav_menu").show();
@@ -116,7 +113,7 @@ $(document).ready(function() {
     }
   });
 
-  //update_header(null);
+  update_header(null);
 
   // $(".w-nav-overlay").attrchange({
   //   trackValues: true,
