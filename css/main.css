@@ -3,3 +3,7 @@
 .input-field::placeholder {color: rgba(42,40,41,0.5);}
 .input-field:focus {outline: none !important;}
 .w-nav-overlay {top: 10%;}
+
+.accordion-answer {
+	display: none;
+}
