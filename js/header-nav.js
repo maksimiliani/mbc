@@ -6,6 +6,71 @@ var header_shrinked = false;
 var menu_opened = false;
 //var menu_bg;
 
+function getAverageRGB(imgEl) {
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+
+    if (!context) {
+        return defaultRGB;
+    }
+    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+    context.drawImage(imgEl, 0, 0);
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        /* security error, img on diff domain */
+        return defaultRGB;
+    }
+    length = data.data.length;
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+    return rgb;
+}
+
+function isNight(color) {
+  var r, g, b, hsp; // Variables for red, green, blue values
+  if (color.match(/^rgb/)) { // Check the format of the color, HEX or RGB?
+    color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/); // If HEX --> store the red, green, blue values in separate variables
+    r = color[1];
+    g = color[2];
+    b = color[3];
+  }
+  else { // If RGB --> Convert it to HEX: http://gist.github.com/983661
+    color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
+    r = color >> 16;
+    g = color >> 8 & 255;
+    b = color & 255;
+  }
+  hsp = Math.sqrt( // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+    0.299 * (r * r) +
+    0.587 * (g * g) +
+    0.114 * (b * b)
+  );
+
+  if (hsp>152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
+    return false; //'day'
+  }
+  else {
+    return true; //'night'
+  }
+}
+
 function update_header(colourr) {
   if (menu_opened) return;
 
@@ -22,71 +87,6 @@ function update_header(colourr) {
     $('#nav_menu').removeClass('shrinked');
     $('#header_button').removeClass('shrinked');
     header_shrinked = false;
-  }
-
-  function getAverageRGB(imgEl) {
-      var blockSize = 5, // only visit every 5 pixels
-          defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
-          canvas = document.createElement('canvas'),
-          context = canvas.getContext && canvas.getContext('2d'),
-          data, width, height,
-          i = -4,
-          length,
-          rgb = {r:0,g:0,b:0},
-          count = 0;
-
-      if (!context) {
-          return defaultRGB;
-      }
-      height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-      width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
-      context.drawImage(imgEl, 0, 0);
-      try {
-          data = context.getImageData(0, 0, width, height);
-      } catch(e) {
-          /* security error, img on diff domain */
-          return defaultRGB;
-      }
-      length = data.data.length;
-      while ( (i += blockSize * 4) < length ) {
-          ++count;
-          rgb.r += data.data[i];
-          rgb.g += data.data[i+1];
-          rgb.b += data.data[i+2];
-      }
-      // ~~ used to floor values
-      rgb.r = ~~(rgb.r/count);
-      rgb.g = ~~(rgb.g/count);
-      rgb.b = ~~(rgb.b/count);
-      return rgb;
-  }
-
-  function isNight(color) {
-    var r, g, b, hsp; // Variables for red, green, blue values
-    if (color.match(/^rgb/)) { // Check the format of the color, HEX or RGB?
-      color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/); // If HEX --> store the red, green, blue values in separate variables
-      r = color[1];
-      g = color[2];
-      b = color[3];
-    }
-    else { // If RGB --> Convert it to HEX: http://gist.github.com/983661
-      color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
-      r = color >> 16;
-      g = color >> 8 & 255;
-      b = color & 255;
-    }
-    hsp = Math.sqrt( // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
-      0.299 * (r * r) +
-      0.587 * (g * g) +
-      0.114 * (b * b)
-    );
-
-    if (hsp>152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
-      return false; //'day'
-    }
-    else {
-      return true; //'night'
-    }
   }
 
   header_el = $(".navbar-master");
