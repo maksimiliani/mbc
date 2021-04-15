@@ -95,6 +95,7 @@ $(document).ready(function() {
       $('.rounded .p-15').addClass('night');
       $('.rounded .p-26').addClass('night');
     }
+  }
 
   $(".menu-button").click(function() {
     if (menu_opened) {
