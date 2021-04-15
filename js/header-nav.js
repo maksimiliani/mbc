@@ -24,6 +24,43 @@ function update_header(colourr) {
     header_shrinked = false;
   }
 
+  function getAverageRGB(imgEl) {
+      var blockSize = 5, // only visit every 5 pixels
+          defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+          canvas = document.createElement('canvas'),
+          context = canvas.getContext && canvas.getContext('2d'),
+          data, width, height,
+          i = -4,
+          length,
+          rgb = {r:0,g:0,b:0},
+          count = 0;
+
+      if (!context) {
+          return defaultRGB;
+      }
+      height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+      width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+      context.drawImage(imgEl, 0, 0);
+      try {
+          data = context.getImageData(0, 0, width, height);
+      } catch(e) {
+          /* security error, img on diff domain */
+          return defaultRGB;
+      }
+      length = data.data.length;
+      while ( (i += blockSize * 4) < length ) {
+          ++count;
+          rgb.r += data.data[i];
+          rgb.g += data.data[i+1];
+          rgb.b += data.data[i+2];
+      }
+      // ~~ used to floor values
+      rgb.r = ~~(rgb.r/count);
+      rgb.g = ~~(rgb.g/count);
+      rgb.b = ~~(rgb.b/count);
+      return rgb;
+  }
+
   function isNight(color) {
     var r, g, b, hsp; // Variables for red, green, blue values
     if (color.match(/^rgb/)) { // Check the format of the color, HEX or RGB?
@@ -92,8 +129,8 @@ $(document).ready(function() {
   for (var i=0; i < blog_el.length; i++) {
     var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;
     if (isNight(blog_colourr)) {
-      $('.rounded .p-15').addClass('night');
-      $('.rounded .p-26').addClass('night');
+      blog_el[i].getElementsByClassName('.rounded .p-15').addClass('night');
+      blog_el[i].getElementsByClassName('.rounded .p-26').addClass('night');
     }
   }
 
@@ -120,6 +157,8 @@ $(document).ready(function() {
 
   setInterval(function(){ locked = false; update_header(null); }, 1000);
   update_header(null);
+
+  $('.section.case-cover-section').style.backgroundColor = getAverageRGB($('.case-cover'));
 
   // $(".w-nav-overlay").attrchange({
   //   trackValues: true,
