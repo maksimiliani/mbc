@@ -155,12 +155,12 @@ $(document).ready(function() {
     }
   });
 
-  setInterval(function(){ locked = false; update_header(null); }, 1000);
-  update_header(null);
-
   var case_cover_section = $('.case-cover-section');
   var got_rgb = getAverageRGB(document.getElementById('case-cover'));
   case_cover_section[0].style.backgroundColor = 'rgb('+got_rgb.r+','+got_rgb.g+','+got_rgb.b+')';
+
+  setInterval(function(){ locked = false; update_header(null); }, 1000);
+  update_header(null);
 
   // $(".w-nav-overlay").attrchange({
   //   trackValues: true,
