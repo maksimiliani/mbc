@@ -158,7 +158,7 @@ $(document).ready(function() {
   setInterval(function(){ locked = false; update_header(null); }, 1000);
   update_header(null);
 
-  $('.section.case-cover-section').style.backgroundColor = getAverageRGB($('.case-cover'));
+  $('.section.case-cover-section').style.backgroundColor = getAverageRGB(document.getElementById('case-cover'));
 
   // $(".w-nav-overlay").attrchange({
   //   trackValues: true,
