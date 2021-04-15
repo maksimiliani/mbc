@@ -88,6 +88,14 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
+  var blog_el = document.getElementsByClassName("rounded.blog");
+  for (var i=0; i < blog_el.length; i++) {
+    var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;
+    if (isNight(blog_colourr)) {
+      $('.rounded .p-15').addClass('night');
+      $('.rounded .p-26').addClass('night');
+    }
+
   $(".menu-button").click(function() {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
