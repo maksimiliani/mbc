@@ -1,5 +1,3 @@
-$('body').append('<script src="https://unpkg.com/fast-average-color/dist/index.min.js"></script>');
-
 var bodyRect;
 var header_el;
 var locked = false;
@@ -121,7 +119,7 @@ $(document).ready(function() {
   });
 
   const fac = new FastAverageColor();
-  const case_cover_section = document.getElementById('case-cover-section');
+  const case_cover_section = document.querySelector('.case-cover-section');
   const got_color = fac.getColor(case_cover_section.querySelector('img'));
   case_cover_section[0].style.backgroundColor = got_color.rgb;
 
