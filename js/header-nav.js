@@ -1,4 +1,4 @@
-import "https://unpkg.com/fast-average-color/dist/index.min.js";
+$('head').append('<script src="https://unpkg.com/fast-average-color/dist/index.min.js"></script>');
 
 var bodyRect;
 var header_el;
