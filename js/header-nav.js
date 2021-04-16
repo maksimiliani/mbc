@@ -1,3 +1,5 @@
+import "https://unpkg.com/fast-average-color/dist/index.min.js";
+
 var bodyRect;
 var header_el;
 var locked = false;
@@ -5,43 +7,6 @@ var sections_color;
 var header_shrinked = false;
 var menu_opened = false;
 //var menu_bg;
-
-function getAverageRGB(imgEl) {
-    var blockSize = 5, // only visit every 5 pixels
-        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
-        canvas = document.createElement('canvas'),
-        context = canvas.getContext && canvas.getContext('2d'),
-        data, width, height,
-        i = -4,
-        length,
-        rgb = {r:0,g:0,b:0},
-        count = 0;
-
-    if (!context) {
-        return defaultRGB;
-    }
-    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
-    context.drawImage(imgEl, 0, 0);
-    try {
-        data = context.getImageData(0, 0, width, height);
-    } catch(e) {
-        /* security error, img on diff domain */
-        return defaultRGB;
-    }
-    length = data.data.length;
-    while ( (i += blockSize * 4) < length ) {
-        ++count;
-        rgb.r += data.data[i];
-        rgb.g += data.data[i+1];
-        rgb.b += data.data[i+2];
-    }
-    // ~~ used to floor values
-    rgb.r = ~~(rgb.r/count);
-    rgb.g = ~~(rgb.g/count);
-    rgb.b = ~~(rgb.b/count);
-    return rgb;
-}
 
 function isNight(color) {
   var r, g, b, hsp; // Variables for red, green, blue values
@@ -155,9 +120,10 @@ $(document).ready(function() {
     }
   });
 
-  var case_cover_section = $('.case-cover-section');
-  var got_rgb = getAverageRGB(document.getElementById('case-cover'));
-  case_cover_section[0].style.backgroundColor = 'rgb('+got_rgb.r+','+got_rgb.g+','+got_rgb.b+')';
+  const fac = new FastAverageColor();
+  const case_cover_section = document.getElementById('case-cover-section');
+  const got_color = fac.getColor(case_cover_section.querySelector('img'));
+  case_cover_section[0].style.backgroundColor = got_color.rgb;
 
   setInterval(function(){ locked = false; update_header(null); }, 1000);
   update_header(null);
