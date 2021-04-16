@@ -1,4 +1,4 @@
-$('head').append('<script src="https://unpkg.com/fast-average-color/dist/index.min.js"></script>');
+$('body').append('<script src="https://unpkg.com/fast-average-color/dist/index.min.js"></script>');
 
 var bodyRect;
 var header_el;
