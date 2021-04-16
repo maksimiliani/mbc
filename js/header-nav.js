@@ -121,7 +121,7 @@ $(document).ready(function() {
   const fac = new FastAverageColor();
   const case_cover_section = document.querySelector('.case-cover-section');
   const got_color = fac.getColor(case_cover_section.querySelector('img'));
-  case_cover_section[0].style.backgroundColor = got_color.rgb;
+  case_cover_section.style.backgroundColor = got_color.rgb;
 
   setInterval(function(){ locked = false; update_header(null); }, 1000);
   update_header(null);
