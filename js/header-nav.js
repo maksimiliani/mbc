@@ -116,6 +116,7 @@ $(document).ready(function() {
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
+      the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       menu_opened = true;
       $('html, body').css({overflow: 'hidden'});
     }
