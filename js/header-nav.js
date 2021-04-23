@@ -114,6 +114,7 @@ $(document).ready(function() {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
       update_header(null);
+      the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       $('html, body').css({overflow: 'auto'});
     } else {
       $('.navbar-master').addClass('opened');
