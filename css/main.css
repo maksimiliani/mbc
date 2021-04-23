@@ -2,7 +2,7 @@
 .navbar-master {-webkit-backdrop-filter: blur(100px); backdrop-filter: blur(100px);}
 .input-field::placeholder {color: rgba(42,40,41,0.5);}
 .input-field:focus {outline: none !important;}
-.w-nav-overlay {top: 10%;}
+.w-nav-overlay {top: 10%; height: auto;}
 
 .accordion-answer {
 	display: none;
