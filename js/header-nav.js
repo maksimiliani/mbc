@@ -70,11 +70,11 @@ function update_header(colourr) {
         if (colourr != null) {
           new_colourr = colourr;
           header_el[0].style.backgroundColor = new_colourr;
-          //the_nav_megamenu[0].style.backgroundColor = new_colourr;
+          the_nav_megamenu[0].style.backgroundColor = new_colourr;
         } else {
           console.log(new_colourr);
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
-          //the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
+          the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
         }
 
         if (isNight(new_colourr)) {
@@ -125,13 +125,6 @@ $(document).ready(function() {
   });
 
   sections_color = document.getElementsByClassName("section");
-
-  $(window).scroll(function() {
-    if (!locked) {
-      locked = true;
-      setTimeout(update_header(null), 150);
-    }
-  });
 
   //average color for case cover
   // const fac = new FastAverageColor();
