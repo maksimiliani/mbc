@@ -36,6 +36,7 @@ function isNight(color) {
 }
 
 function update_header(colourr) {
+  console.log(menu_opened);
   if (menu_opened) return;
 
   if (!header_shrinked && (window.scrollY > 112)) {
@@ -71,6 +72,7 @@ function update_header(colourr) {
           header_el[0].style.backgroundColor = new_colourr;
           the_nav_megamenu[0].style.backgroundColor = new_colourr;
         } else {
+          console.log(new_colourr);
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
           the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
         }
@@ -116,8 +118,8 @@ $(document).ready(function() {
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
-      the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       menu_opened = true;
+      the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       $('html, body').css({overflow: 'hidden'});
     }
   });
