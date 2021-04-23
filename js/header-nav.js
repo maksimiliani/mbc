@@ -132,7 +132,14 @@ $(document).ready(function() {
   //const got_color = fac.getColor(case_cover_section.querySelector('img'));
   //case_cover_section.style.backgroundColor = got_color.rgb;
 
-  setInterval(function(){ locked = false; if (!menu_opened) update_header(null); }, 200);
+  $(window).scroll(function() {
+     if (!locked) {
+       locked = true;
+       setTimeout(update_header(null), 150);
+     }
+   });
+
+  //setInterval(function(){ locked = true; if (!menu_opened) update_header(null); }, 200);
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
