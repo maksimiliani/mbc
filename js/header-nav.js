@@ -71,7 +71,7 @@ function update_header(colourr) {
           the_nav_megamenu[0].style.backgroundColor = new_colourr;
         } else {
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
-          the_nav_megamenu[0].style.backgroundColor = new_colourr;
+          the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
         }
 
         if (isNight(new_colourr)) {
@@ -85,6 +85,7 @@ function update_header(colourr) {
           $('.navbar-master .nav-link').removeClass('night');
           $('.navbar-master .logo').removeClass('night');
           $('.navbar-master .button').removeClass('night');
+          $('.navbar-master .menu-button').removeClass('night');
           $('.nav-megamenu .p-18').removeClass('night');
           $('.nav-megamenu .p-15').removeClass('night');
         }
