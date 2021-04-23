@@ -1,5 +1,6 @@
 var bodyRect;
 var header_el;
+var the_nav_megamenu;
 var locked = false;
 var sections_color;
 var header_shrinked = false;
@@ -111,10 +112,12 @@ $(document).ready(function() {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
       update_header(null);
+      $('html, body').css({overflow: 'auto'});
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
+      $('html, body').css({overflow: 'hidden'});
     }
   });
 
