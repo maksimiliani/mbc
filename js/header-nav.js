@@ -100,9 +100,9 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-    $("body").children().each(function() {
-        $(this).html($(this).html().replace(/&#8232 ;/g," ")); // remove the space in front of the first semicolon!
-    });
+  $("body").children().each(function() {
+      $(this).html($(this).html().replace(/&#8232;/g," "));
+  });
 
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i=0; i < blog_el.length; i++) {
