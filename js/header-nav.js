@@ -36,7 +36,7 @@ function isNight(color) {
 }
 
 function update_header(colourr) {
-  console.log(menu_opened);
+  //console.log(menu_opened);
   if (menu_opened) return;
 
   if (!header_shrinked && (window.scrollY > 112)) {
@@ -100,7 +100,7 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-   $('#blog-content > a').attr('rel','nofollow')
+   $('#blog-content a').attr('rel','nofollow');
 
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i=0; i < blog_el.length; i++) {
