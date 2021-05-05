@@ -72,7 +72,7 @@ function update_header(colourr) {
           header_el[0].style.backgroundColor = new_colourr;
           the_nav_megamenu[0].style.backgroundColor = new_colourr;
         } else {
-          console.log(new_colourr);
+          //console.log(new_colourr);
           header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
           the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
         }
@@ -100,7 +100,7 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-   $('body > #blog-content a').attr('rel','nofollow')
+   $('#blog-content > a').attr('rel','nofollow')
 
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i=0; i < blog_el.length; i++) {
