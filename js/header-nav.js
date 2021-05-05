@@ -100,6 +100,8 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
+   $('body > #blog-content a').attr('rel','nofollow')
+
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i=0; i < blog_el.length; i++) {
     var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;
