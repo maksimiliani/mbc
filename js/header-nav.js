@@ -103,7 +103,7 @@ $(document).ready(function() {
    $('#blog-content a').attr('rel','nofollow'); //no-follow setup
 
   if (document.cookie.indexOf("accepted_cookies=") >= 0) {
-    $('#cookie_message').addClass('hidden');
+    $('#cookie_message').removeClass('hidden');
   }
   $('#accept_cookies').on('click', function() {
     document.cookie = "accepted_cookies=yes;"
