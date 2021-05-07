@@ -100,7 +100,14 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-   $('#blog-content a').attr('rel','nofollow');
+   $('#blog-content a').attr('rel','nofollow'); //no-follow setup
+
+  if (document.cookie.indexOf("accepted_cookies=") >= 0) {
+    $('#cookie_message').addClass('hidden');
+  }
+  $('#accept_cookies').on('click', function() {
+    document.cookie = "accepted_cookies=yes;"
+  });
 
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i=0; i < blog_el.length; i++) {
