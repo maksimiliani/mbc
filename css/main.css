@@ -13,3 +13,4 @@
 	-webkit-appearance:none; /* Safari and Chrome */
 	appearance: none;
 }
+#field_type option {color: rgba(42,40,41,1);}
