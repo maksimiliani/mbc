@@ -36,7 +36,7 @@ $(document).ready( function() {
       	var $this = $(this);
       	var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
       	var typeResult = typeFilter ? $this.is( typeFilter ) : true;
-      	return searchResult && typeResult && catResult;
+      	return searchResult && typeResult;
     	}
   });
 
