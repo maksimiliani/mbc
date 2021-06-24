@@ -150,6 +150,24 @@ $(document).ready(function() {
    });
 
   //setInterval(function(){ locked = true; if (!menu_opened) update_header(null); }, 200);
+  var img1 = $("#case-cover");
+  if (img1.length > 0) {
+    var src = img1[0].src;
+    img1[0].removeAttribute("src");
+    img1[0].crossOrigin = 'anonymous';
+    img1[0].src = src;
+
+    const fac = new FastAverageColor();
+  	const container = document.querySelector('.section.case-cover-section');
+    fac.getColorAsync(container.querySelector('img'))
+      .then(color => {
+      container.style.backgroundColor = color.rgba;
+      container.style.color = color.isDark ? '#fff' : '#000';
+	  }).catch(e => {
+    	console.log(e);
+    });
+  }
+
   update_header(null);
 
   // $(".w-nav-overlay").attrchange({
