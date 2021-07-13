@@ -14,3 +14,4 @@
 	appearance: none;
 }
 #field_type option {color: rgba(42,40,41,1);}
+.case-results-description-for-bullits li:last-child {border-bottom: none;}
