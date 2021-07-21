@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 (function () {
 
-    var deadline = '2021/09/15 10:00';
+    var deadline = '2021/09/18 10:00';
 
     function pad(num, size) {
         var s = "0" + num;
