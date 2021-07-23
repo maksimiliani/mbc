@@ -66,9 +66,9 @@ function update_header(colourr) {
 $(document).ready(function() {
 
   sections_color = document.getElementsByClassName("section");
-  
-  var wbfl_el = document.getElementById('w-webflow-badge');
-  wbfl_el.remove();
+
+  var wbfl_el = document.getElementsByClassName('w-webflow-badge');
+  wbfl_el[0].remove();
 
   $(window).scroll(function() {
      if (!locked) {
