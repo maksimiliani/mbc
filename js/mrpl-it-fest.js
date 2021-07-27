@@ -55,9 +55,13 @@ function update_header(colourr) {
         if (isNight(new_colourr)) {
           $('.logo').addClass('night');
           $('.navlink').addClass('night');
+          $('.nav-menu').addClass('night');
+          $('.menu-button').addClass('night');
         } else {
           $('.logo').removeClass('night');
           $('.navlink').removeClass('night');
+          $('.nav-menu').removeClass('night');
+          $('.menu-button').removeClass('night');
         }
         locked = false;
         break;
