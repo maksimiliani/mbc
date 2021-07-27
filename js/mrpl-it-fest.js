@@ -54,8 +54,10 @@ function update_header(colourr) {
 
         if (isNight(new_colourr)) {
           $('.logo').addClass('night');
+          $('.navlink').addClass('night');
         } else {
           $('.logo').removeClass('night');
+          $('.navlink').removeClass('night');
         }
         locked = false;
         break;
@@ -66,9 +68,6 @@ function update_header(colourr) {
 $(document).ready(function() {
 
   sections_color = document.getElementsByClassName("section");
-
-  var wbfl_el = document.getElementsByClassName('w-webflow-badge');
-  wbfl_el[0].remove();
 
   $(window).scroll(function() {
      if (!locked) {
