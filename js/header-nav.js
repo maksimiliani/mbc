@@ -157,7 +157,7 @@ $(document).ready(function() {
     if (!service_opened) {
       service_opened = true;
       $('html, body').css({overflow: 'hidden'});
-      $('services-menu').style.height = 'calc(100vh - 120px)';
+      $('services-menu')[0].style.height = 'calc(100vh - 120px)';
     }
   });
   $(".megamenu-close").click(function() {
