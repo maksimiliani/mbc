@@ -160,7 +160,7 @@ $(document).ready(function() {
     } else {
       service_opened = true;
       $('html, body').css({overflow: 'hidden'});
-      $('services-menu').css({height: calc(100vh - 240px)});
+      $('services-menu').css({height: 'calc(100vh - 120px)'});
     }
   });
 
