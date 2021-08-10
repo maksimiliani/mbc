@@ -162,7 +162,7 @@ $(document).ready(function() {
       $( this ).css( "color", "red" );
       $('.services-menu')[0].css("height", "calc(100vh - 240px)");// style.height = 'calc(100vh - 240px)';
       $('.services-menu.night')[0].css("scrollbar-color", "rgba(255,255,255,0.33) transparent"); //.style.scrollbar-color = 'rgba(255,255,255,0.33) transparent';
-      $('.services-menu')[0]..css("scrollbar-color", "rgba(42,40,41,0.33) transparent"); //style.scrollbar-color = 'rgba(42,40,41,0.33) transparent';
+      $('.services-menu')[0].css("scrollbar-color", "rgba(42,40,41,0.33) transparent"); //style.scrollbar-color = 'rgba(42,40,41,0.33) transparent';
     }
   });
   $(".megamenu-close").click(function() {
