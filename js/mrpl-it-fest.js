@@ -57,16 +57,18 @@ function update_header(colourr) {
           $('.navlink').addClass('night');
           $('.nav-menu').addClass('night');
           $('.menu-button').addClass('night');
+          $('.navlink-box').addClass('night');
         } else {
           $('.logo').removeClass('night');
           $('.navlink').removeClass('night');
           $('.nav-menu').removeClass('night');
           $('.menu-button').removeClass('night');
+          $('.navlink-box').removeClass('night');
         }
-        locked = false;
         break;
       }
     }
+    locked = false;
 }
 
 $(document).ready(function() {
