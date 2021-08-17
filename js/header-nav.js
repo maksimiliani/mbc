@@ -113,7 +113,7 @@ $(document).ready(function() {
     all_link.setAttribute("role", "listitem");
 
     all_link.innerHTML = '<a href="../work/" class="work-link-container w-inline-block"><div class="p-15 bold">All</div></a>';
-    document.body.insertBefore(all_link, tabs);
+    document.body.insertBefore(all_link, tabs[0]);
   }
 
   $('#blog-content a').attr('rel','nofollow'); //no-follow setup
