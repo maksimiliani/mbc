@@ -103,23 +103,18 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
-  // var img1 = $("#case-cover");
-  // if (img1.length > 0) {
-  //   var src = img1[0].src;
-  //   img1[0].removeAttribute("src");
-  //   img1[0].crossOrigin = 'anonymous';
-  //   img1[0].src = src;
-  //
-  //   const fac = new FastAverageColor();
-  //   const container = document.querySelector('.section.case-cover-section');
-  //   fac.getColorAsync(container.querySelector('img'))
-  //     .then(color => {
-  //     container.style.backgroundColor = color.rgba;
-  //     container.style.color = color.isDark ? '#fff' : '#000';
-  //   }).catch(e => {
-  //     console.log(e);
-  //   });
-  // } — replaced with cms handling
+  //add all to case page
+  var tabs = $('#stacked_types');
+  if (tabs.length > 0) {
+    var all_link = document.createElement("div");
+    all_link.setAttribute("class", "work-link-container-parent w-dyn-item");
+    all_link.setAttribute("data-w-id", "c2c11bd1-ebd4-f74e-7d52-3bbf81f16e0d");
+    all_link.setAttribute("style", "opacity: 1;");
+    all_link.setAttribute("role", "listitem");
+
+    all_link.innerHTML = '<a href="../work/" class="work-link-container w-inline-block"><div class="p-15 bold">All</div></a>';
+    document.body.insertBefore(tabs, all_link);
+  }
 
   $('#blog-content a').attr('rel','nofollow'); //no-follow setup
 
