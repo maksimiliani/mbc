@@ -6,6 +6,8 @@ var sections_color;
 var header_shrinked = false;
 var menu_opened = false;
 var service_opened = false;
+var all_link;
+var tabs;
 //var menu_bg;
 
 function isNight(color) {
@@ -104,9 +106,9 @@ function update_header(colourr) {
 $(document).ready(function() {
 
   //add all to case page
-  var tabs = $('#stacked_types');
+  tabs = $('#stacked_types');
   if (tabs.length > 0) {
-    var all_link = document.createElement("div");
+    all_link = document.createElement("div");
     all_link.setAttribute("class", "work-link-container-parent w-dyn-item");
     all_link.setAttribute("data-w-id", "c2c11bd1-ebd4-f74e-7d52-3bbf81f16e0d");
     all_link.setAttribute("style", "opacity: 1;");
