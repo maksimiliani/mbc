@@ -58,12 +58,14 @@ function update_header(colourr) {
           $('.nav-menu').addClass('night');
           $('.menu-button').addClass('night');
           $('.navlink-box').addClass('night');
+          $('#nav_cta').addClass('night');
         } else {
           $('.logo').removeClass('night');
           $('.navlink').removeClass('night');
           $('.nav-menu').removeClass('night');
           $('.menu-button').removeClass('night');
           $('.navlink-box').removeClass('night');
+          $('#nav_cta').removeClass('night');
         }
         break;
       }
