@@ -119,6 +119,15 @@ $(document).ready(function() {
   }
 
   $('#blog-content a').attr('rel','nofollow'); //no-follow setup
+  //img attr below
+  let img_images = document.getElementsByTagName('img');
+  let img_title = document.getElementsByTagName('h1')[0].textContent;
+  let img_counter = 0;
+  for (image of img_images) {
+    img_counter++;
+    image.title = img_title;
+    image.alt = img_title + ' - ' + img_counter;
+  }
 
   if (document.cookie.indexOf("accepted_cookies=") < 0) {
     $('#cookie_message').removeClass('hidden');
