@@ -118,7 +118,10 @@ $(document).ready(function() {
     tabs[0].prepend(all_link);
   }
 
-  $('#blog-content a').attr('rel','nofollow'); //no-follow setup
+  if ($('#nofoll').attr('no-fol') == 'false') {
+    $('#blog-content a').attr('rel','nofollow'); //no-follow setup
+  }
+
   //img attr below
   let img_images = document.getElementsByTagName('img');
   let img_title = document.getElementsByTagName('h1')[0].textContent;
