@@ -105,6 +105,11 @@ function update_header(colourr) {
 
 $(document).ready(function() {
 
+  //set hidden input val
+  if($('#Page')){
+    $('#Page').val(document.title);
+  }
+
   //add all to case page
   tabs = $('#stacked_types');
   if (tabs.length > 0) {
