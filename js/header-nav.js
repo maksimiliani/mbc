@@ -30,7 +30,7 @@ function isNight(color) {
     0.114 * (b * b)
   );
 
-  if (hsp>152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
+  if (hsp > 152) { // hsp>127.5 Using the HSP value, determine whether the color is light or dark // original 185
     return false; //'day'
   }
   else {
@@ -47,7 +47,7 @@ function update_header(colourr) {
     $('.nav-link').addClass('shrinked');
     $('#nav_menu').addClass('shrinked');
     $('#header_button').addClass('shrinked');
-//    $('#nav_megamenu').addClass('shrinked');
+    //    $('#nav_megamenu').addClass('shrinked');
     header_shrinked = true;
   }
   if (header_shrinked && (window.scrollY <= 112)) {
@@ -55,7 +55,7 @@ function update_header(colourr) {
     $('.nav-link').removeClass('shrinked');
     $('#nav_menu').removeClass('shrinked');
     $('#header_button').removeClass('shrinked');
-//    $('#nav_megamenu').removeClass('shrinked');
+    //    $('#nav_megamenu').removeClass('shrinked');
     header_shrinked = false;
   }
 
@@ -63,52 +63,56 @@ function update_header(colourr) {
   the_nav_megamenu = $(".nav-megamenu");
   bodyRect = document.body.getBoundingClientRect();
 
-  for (var i=0; i < sections_color.length; i++) {
+  for (var i = 0; i < sections_color.length; i++) {
     var offset1 = sections_color[i].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
     var offset2 = sections_color[i].getBoundingClientRect().top - bodyRect.top + sections_color[i].getBoundingClientRect().height - header_el[0].offsetHeight;
-    if (i < sections_color.length-1)
-      offset2 = sections_color[i+1].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
-      if ((window.scrollY >= offset1) && (window.scrollY < offset2)) {
-        var new_colourr = getComputedStyle(sections_color[i], null).backgroundColor;
-        if (colourr != null) {
-          new_colourr = colourr;
-          header_el[0].style.backgroundColor = new_colourr;
-          the_nav_megamenu[0].style.backgroundColor = new_colourr;
-        } else {
-          //console.log(new_colourr);
-          header_el[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 0.9)';
-          the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0,-1) + ', 1.0)';
-        }
-
-        if (isNight(new_colourr)) {
-          $('.navbar-master .nav-link').addClass('night');
-          $('.navbar-master .logo').addClass('night');
-          $('.navbar-master .button').addClass('night');
-          $('.navbar-master .menu-button').addClass('night');
-          $('.nav-megamenu .p-18').addClass('night');
-          $('.nav-megamenu .p-15').addClass('night');
-          $('.services-menu').addClass('night');
-        } else {
-          $('.navbar-master .nav-link').removeClass('night');
-          $('.navbar-master .logo').removeClass('night');
-          $('.navbar-master .button').removeClass('night');
-          $('.navbar-master .menu-button').removeClass('night');
-          $('.nav-megamenu .p-18').removeClass('night');
-          $('.nav-megamenu .p-15').removeClass('night');
-          $('.services-menu').removeClass('night');
-        }
-        locked = false;
-        break;
+    if (i < sections_color.length - 1)
+      offset2 = sections_color[i + 1].getBoundingClientRect().top - bodyRect.top - header_el[0].offsetHeight;
+    if ((window.scrollY >= offset1) && (window.scrollY < offset2)) {
+      var new_colourr = getComputedStyle(sections_color[i], null).backgroundColor;
+      if (colourr != null) {
+        new_colourr = colourr;
+        header_el[0].style.backgroundColor = new_colourr;
+        the_nav_megamenu[0].style.backgroundColor = new_colourr;
+      } else {
+        //console.log(new_colourr);
+        header_el[0].style.backgroundColor = new_colourr.slice(0, -1) + ', 0.9)';
+        the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0, -1) + ', 1.0)';
       }
+
+      if (isNight(new_colourr)) {
+        $('.navbar-master .nav-link').addClass('night');
+        $('.navbar-master .logo').addClass('night');
+        $('.navbar-master .button').addClass('night');
+        $('.navbar-master .menu-button').addClass('night');
+        $('.nav-megamenu .p-18').addClass('night');
+        $('.nav-megamenu .p-15').addClass('night');
+        $('.services-menu').addClass('night');
+      } else {
+        $('.navbar-master .nav-link').removeClass('night');
+        $('.navbar-master .logo').removeClass('night');
+        $('.navbar-master .button').removeClass('night');
+        $('.navbar-master .menu-button').removeClass('night');
+        $('.nav-megamenu .p-18').removeClass('night');
+        $('.nav-megamenu .p-15').removeClass('night');
+        $('.services-menu').removeClass('night');
+      }
+      locked = false;
+      break;
     }
+  }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   //set hidden input val
-  if($('#Page')){
+  if ($('#Page')) {
     $('#Page').val(document.title);
   }
+  if ($('#g_id'))
+    ga(function (tracker) {
+      $('#g_id').val(tracker.get('clientId'));
+    });
 
   //add all to case page
   tabs = $('#stacked_types');
@@ -124,7 +128,7 @@ $(document).ready(function() {
   }
 
   if ($('#nofoll').attr('no-fol') == 'false') {
-    $('#blog-content a').attr('rel','nofollow'); //no-follow setup
+    $('#blog-content a').attr('rel', 'nofollow'); //no-follow setup
   }
 
   //img attr below
@@ -140,12 +144,12 @@ $(document).ready(function() {
   if (document.cookie.indexOf("accepted_cookies=") < 0) {
     $('#cookie_message').removeClass('hidden');
   }
-  $('#accept_cookies').on('click', function() {
+  $('#accept_cookies').on('click', function () {
     document.cookie = "accepted_cookies=yes;"
   });
 
   var blog_el = document.getElementsByClassName("rounded.blog");
-  for (var i=0; i < blog_el.length; i++) {
+  for (var i = 0; i < blog_el.length; i++) {
     var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;
     if (isNight(blog_colourr)) {
       blog_el[i].getElementsByClassName('.rounded .p-15').addClass('night');
@@ -153,41 +157,41 @@ $(document).ready(function() {
     }
   }
 
-  $(".menu-button").click(function() {
+  $(".menu-button").click(function () {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
       update_header(null);
       the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
-      $('html, body').css({overflow: 'auto'});
+      $('html, body').css({ overflow: 'auto' });
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
       the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
-      $('html, body').css({overflow: 'hidden'});
+      $('html, body').css({ overflow: 'hidden' });
     }
   });
 
-  $(".service-hidden").click(function() {
+  $(".service-hidden").click(function () {
     if (!service_opened) {
       service_opened = true;
-      $('html, body').css({overflow: 'hidden'});
+      $('html, body').css({ overflow: 'hidden' });
       $('.services-menu').css("height", "calc(100vh - 240px)");// style.height = 'calc(100vh - 240px)';
       $('.services-menu.night').css("scrollbar-color", "rgba(255,255,255,0.33) transparent"); //.style.scrollbar-color = 'rgba(255,255,255,0.33) transparent';
       $('.services-menu').css("scrollbar-color", "rgba(42,40,41,0.33) transparent"); //style.scrollbar-color = 'rgba(42,40,41,0.33) transparent';
     }
   });
-  $(".megamenu-close").click(function() {
+  $(".megamenu-close").click(function () {
     if (service_opened) {
       service_opened = false;
-      $('html, body').css({overflow: 'auto'});
+      $('html, body').css({ overflow: 'auto' });
     }
   });
-  $(".nav-megamenu").click(function() {
+  $(".nav-megamenu").click(function () {
     if (service_opened) {
       service_opened = false;
-      $('html, body').css({overflow: 'auto'});
+      $('html, body').css({ overflow: 'auto' });
     }
   });
 
@@ -199,12 +203,12 @@ $(document).ready(function() {
   //const got_color = fac.getColor(case_cover_section.querySelector('img'));
   //case_cover_section.style.backgroundColor = got_color.rgb;
 
-  $(window).scroll(function() {
-     if (!locked) {
-       locked = true;
-       setTimeout(update_header(null), 150);
-     }
-   });
+  $(window).scroll(function () {
+    if (!locked) {
+      locked = true;
+      setTimeout(update_header(null), 150);
+    }
+  });
 
   //setInterval(function(){ locked = true; if (!menu_opened) update_header(null); }, 200);
 
