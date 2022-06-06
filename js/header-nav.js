@@ -109,10 +109,10 @@ $(document).ready(function () {
   if ($('#Page')) {
     $('#Page').val(document.title);
   }
-  if ($('#g_id'))
+  /*if ($('#g_id'))
     ga(function (tracker) {
       $('#g_id').val(tracker.get('clientId'));
-    });
+    });*/
 
   //add all to case page
   tabs = $('#stacked_types');
