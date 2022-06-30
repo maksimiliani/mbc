@@ -1,18 +1,48 @@
-.rounded.black:hover > a {color: #79B316;}
-.navbar-master {-webkit-backdrop-filter: blur(100px); backdrop-filter: blur(100px);}
-.input-field::placeholder {color: rgba(42,40,41,0.5);}
-.input-field:focus {outline: none !important;}
-.w-nav-overlay {top: 10%; height: auto !important;}
+.rounded.black:hover>a {
+	color: #79B316;
+}
+
+.navbar-master {
+	-webkit-backdrop-filter: blur(100px);
+	backdrop-filter: blur(100px);
+}
+
+.input-field::placeholder {
+	color: rgba(42, 40, 41, 0.5);
+}
+
+.input-field:focus {
+	outline: none !important;
+}
+
+.w-nav-overlay {
+	top: 10%;
+	height: auto !important;
+}
 
 .accordion-answer {
 	display: none;
 }
 
 #field_type {
-	-moz-appearance:none; /* Firefox */
-	-webkit-appearance:none; /* Safari and Chrome */
+	-moz-appearance: none;
+	/* Firefox */
+	-webkit-appearance: none;
+	/* Safari and Chrome */
 	appearance: none;
 }
-#field_type option {color: rgba(42,40,41,1);}
-.case-results-description-for-bullits li:last-child, 
-.case-results-description-for-bullits-night li:last-child {border-bottom: none;}
+
+#field_type option {
+	color: rgba(42, 40, 41, 1);
+}
+
+.case-results-description-for-bullits li:last-child,
+.case-results-description-for-bullits-night li:last-child {
+	border-bottom: none;
+}
+
+/*megamenu hover*/
+.megamenu-tile-service:hover>img {
+	filter: none;
+	webkit-filter: grayscale(0%);
+}
