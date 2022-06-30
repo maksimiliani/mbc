@@ -45,4 +45,5 @@
 .megamenu-tile-service:hover>img {
 	filter: none;
 	webkit-filter: grayscale(0%);
+	opacity: 100%;
 }
