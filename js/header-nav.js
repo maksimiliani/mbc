@@ -189,6 +189,9 @@ $(document).ready(function () {
       $('.services-menu').css("height", "calc(100vh - 240px)");// style.height = 'calc(100vh - 240px)';
       $('.services-menu.night').css("scrollbar-color", "rgba(255,255,255,0.33) transparent"); //.style.scrollbar-color = 'rgba(255,255,255,0.33) transparent';
       $('.services-menu').css("scrollbar-color", "rgba(42,40,41,0.33) transparent"); //style.scrollbar-color = 'rgba(42,40,41,0.33) transparent';
+    } else {
+      service_opened = false;
+      $('html, body').css({ overflow: 'auto' });
     }
   });
   $(".megamenu-close").click(function () {
