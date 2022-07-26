@@ -1,4 +1,4 @@
-.blog-content figure iframe {
+.blog-content .w-richtext figure.w-richtext-figure-type-video iframe {
 	left: 25%;
 	height: 150%;
 }
