@@ -1,3 +1,8 @@
+.blog-content figure iframe {
+	left: 25%;
+	height: 150%;
+}
+
 .rounded.black:hover>a {
 	color: #79B316;
 }
@@ -42,6 +47,10 @@
 }
 
 /*megamenu hover*/
+.megamenu-tile-service {
+	text-decoration: none !important;
+}
+
 .megamenu-tile-service:hover>img {
 	filter: none;
 	webkit-filter: grayscale(0%);
