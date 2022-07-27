@@ -1,4 +1,4 @@
-.mbc-post-contents figure {
+.mbc-post-contents figure:has(> div > iframe) {
 	left: 0%;
 	min-width: 100%;
 	padding-bottom: 56% !important;
