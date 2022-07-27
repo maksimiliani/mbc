@@ -1,4 +1,4 @@
-.mbc-post-contents figure:has(> div > iframe) {
+.mbc-post-contents figure.w-richtext-figure-type-video {
 	left: 0%;
 	min-width: 100%;
 	padding-bottom: 56% !important;
