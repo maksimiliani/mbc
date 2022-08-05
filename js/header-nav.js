@@ -73,11 +73,11 @@ function update_header(colourr) {
       if (colourr != null) {
         new_colourr = colourr;
         header_el[0].style.backgroundColor = new_colourr;
-        if (the_nav_megamenu) the_nav_megamenu[0].style.backgroundColor = new_colourr;
+        if (the_nav_megamenu[0]) the_nav_megamenu[0].style.backgroundColor = new_colourr;
       } else {
         //console.log(new_colourr);
         header_el[0].style.backgroundColor = new_colourr.slice(0, -1) + ', 0.9)';
-        if (the_nav_megamenu) the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0, -1) + ', 1.0)';
+        if (the_nav_megamenu[0]) the_nav_megamenu[0].style.backgroundColor = new_colourr.slice(0, -1) + ', 1.0)';
       }
 
       if (isNight(new_colourr)) {
@@ -171,13 +171,13 @@ $(document).ready(function () {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
       update_header(null);
-      if (the_nav_megamenu) the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
+      if (the_nav_megamenu[0]) the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       $('html, body').css({ overflow: 'auto' });
     } else {
       $('.navbar-master').addClass('opened');
       update_header('rgb(255, 255, 255)');
       menu_opened = true;
-      if (the_nav_megamenu) the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
+      if (the_nav_megamenu[0]) the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
       $('html, body').css({ overflow: 'hidden' });
     }
   });
