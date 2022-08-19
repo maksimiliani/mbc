@@ -108,7 +108,7 @@ $(document).ready(function () {
   //funstion for google marketing
   var observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutationRecord) {
-      console.log('style changed!');
+      dataLayer.push({ 'event': 'form_send_ok' });
     });
   });
   var target = document.getElementById('form_success');
