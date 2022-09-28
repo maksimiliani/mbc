@@ -88,6 +88,8 @@ function update_header(colourr) {
         $('.nav-megamenu .p-18').addClass('night');
         $('.nav-megamenu .p-15').addClass('night');
         $('.services-menu').addClass('night');
+        $('.mbc-logo-lottie-day').addClass('night');
+        $('.mbc-logo-lottie-night').addClass('night');
       } else {
         $('.navbar-master .nav-link').removeClass('night');
         $('.navbar-master .logo').removeClass('night');
@@ -96,6 +98,8 @@ function update_header(colourr) {
         $('.nav-megamenu .p-18').removeClass('night');
         $('.nav-megamenu .p-15').removeClass('night');
         $('.services-menu').removeClass('night');
+        $('.mbc-logo-lottie-day').removeClass('night');
+        $('.mbc-logo-lottie-night').removeClass('night');
       }
       locked = false;
       break;
