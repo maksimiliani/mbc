@@ -170,6 +170,16 @@ $(document).ready(function () {
     document.cookie = "accepted_cookies=yes;"
   });
 
+  if (document.cookie.indexOf("award_pop_seen=") < 0) {
+    $('#award_pop').removeClass('hidden');
+  }
+  $('#award_pop_close').on('click', function () {
+    document.cookie = "award_pop_seen=yes;"
+  });
+  $('#award_pop_cta').on('click', function () {
+    document.cookie = "award_pop_seen=yes;"
+  });
+
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i = 0; i < blog_el.length; i++) {
     var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;
