@@ -122,20 +122,20 @@ $(document).ready(function () {
   if ($('#Page')) {
     $('#Page').val(document.title);
   }
-
-  if ($('#g_id')) {
-    function check_ga() {
-      if (typeof ga === 'function') {
-        ga.getAll().forEach((tracker) => {
-          $('#g_id').val(tracker.get('clientId'));
-        })
-      } else {
-        setTimeout(check_ga, 500);
+  /*
+    if ($('#g_id')) {
+      function check_ga() {
+        if (typeof ga === 'function') {
+          ga.getAll().forEach((tracker) => {
+            $('#g_id').val(tracker.get('clientId'));
+          })
+        } else {
+          setTimeout(check_ga, 500);
+        }
       }
+      check_ga();
     }
-    check_ga();
-  }
-
+  */
   //add all to case page
   tabs = $('#stacked_types');
   if (tabs.length > 0) {
