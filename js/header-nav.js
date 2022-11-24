@@ -150,7 +150,10 @@ $(document).ready(function () {
   }
 
   if ($('#nofoll').attr('no-fol') == 'false') {
-    $('#blog-content a').attr('rel', 'nofollow'); //no-follow setup
+    for (let i = 0; i < $('#blog-content a').length; i++) {
+      if ($('#blog-content a')[i].getAttribute("href").search("www.makebecool.com") < 0)
+        $('#blog-content a')[i].setAttribute("rel", "nofollow"); //$('#blog-content a')[i].removeAttribute("rel"));
+    }
   }
 
   //img attr below
