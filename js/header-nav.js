@@ -109,7 +109,7 @@ function update_header(colourr) {
 
 $(document).ready(function () {
 
-  if ($('form_success')) {
+  if ($('form_success').length > 0) {
     //funstion for google marketing
     var observer = new MutationObserver(function (mutations) {
       mutations.forEach(function (mutationRecord) {
