@@ -109,14 +109,16 @@ function update_header(colourr) {
 
 $(document).ready(function () {
 
-  //funstion for google marketing
-  var observer = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutationRecord) {
-      dataLayer.push({ 'event': 'form_send_ok' });
+  if ($('form_success')) {
+    //funstion for google marketing
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutationRecord) {
+        dataLayer.push({ 'event': 'form_send_ok' });
+      });
     });
-  });
-  var target = document.getElementById('form_success');
-  observer.observe(target, { attributes: true, attributeFilter: ['style'] });
+    var target = document.getElementById('form_success');
+    observer.observe(target, { attributes: true, attributeFilter: ['style'] });
+  }
 
   //set hidden input val
   if ($('#Page')) {
