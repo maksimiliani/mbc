@@ -21,6 +21,7 @@ function showResult(xmlhttp) {
     ul = document.getElementById("sitemap");
     ul = ul.getElementsByTagName("ul")[0];
     var rowData = xmlDoc.getElementsByTagName("url");
+    ul.innerHTML = '';
 
     addTableRowsFromXmlDoc(rowData, ul);
 }
