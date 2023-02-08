@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 
 function getRows() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "https://makebecool.com/sitemap.xml", true);
+    xmlhttp.open("get", "../sitemap/sitemap.xml", true);
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             showResult(this);
