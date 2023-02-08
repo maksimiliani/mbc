@@ -1,3 +1,5 @@
+var ul;
+
 window.addEventListener("load", function () {
     getRows();
 });
@@ -16,7 +18,7 @@ function getRows() {
 function showResult(xmlhttp) {
     var xmlDoc = xmlhttp.responseXML.documentElement;
     removeWhitespace(xmlDoc);
-    let ul = document.getElementById("sitemap");
+    ul = document.getElementById("sitemap");
     ul = ul.getElementsByTagName("ul")[0];
     var rowData = xmlDoc.getElementsByTagName("url");
 
@@ -28,7 +30,8 @@ function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
     for (i = 0; i < xmlNodes.length; i++) {
         let li = document.createElement("li");
         let lnk = document.createElement("a");
-        lnk.setAttribute("href", xmlNodes[i].firstChild.nodeValue);
+        lnk.setAttribute("href", xmlNodes[i].firstChild.innerHTML);
+        lnk.appendChild(document.createTextNode(xmlNodes[i].firstChild.innerHTML));
         li.appendChild(lnk);
         tableNode.appendChild(li);
     }
