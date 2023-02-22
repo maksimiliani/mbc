@@ -185,6 +185,24 @@ $(document).ready(function () {
     document.cookie = "award_pop_seen=yes;"
   });
 
+  let utm_v;
+  utm_v = window.location.href.split('?')[1];
+  if (utm_v != "undefined") {
+    document.cookie = `utm_v={$utm_v}};`;
+  } else if (document.cookie.indexOf("award_pop_seen=") < 0) {
+    var cookieArr = document.cookie.split(";");
+    for (var i = 0; i < cookieArr.length; i++) {
+      var cookiePair = cookieArr[i].split("=");
+      if ("utm_v" == cookiePair[0].trim()) {
+        utm_v = decodeURIComponent(cookiePair[1]);
+      }
+    }
+  }
+
+  if ($('#g_id')) {
+    $('#g_id').val(utm_v);
+  }
+
   var blog_el = document.getElementsByClassName("rounded.blog");
   for (var i = 0; i < blog_el.length; i++) {
     var blog_colourr = getComputedStyle(blog_el[i], null).backgroundColor;

@@ -1,0 +1,14 @@
+Disallow: /?*
+Disallow: /404
+Disallow: /401
+Disallow: /product/
+Disallow: /category/
+Disallow: /checkout
+Disallow: /paypal-checkout
+Disallow: /order-confirmation
+Disallow: /integration-type/
+Disallow: /case-detailed/
+Disallow: /blog-author/
+Disallow: /target-case-pages/
+Disallow: /project-tiles/
+Disallow: /integration/
