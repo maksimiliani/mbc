@@ -188,7 +188,7 @@ $(document).ready(function () {
   let utm_v;
   utm_v = window.location.href.split('?')[1];
   if (utm_v != "undefined") {
-    document.cookie = `utm_v={$utm_v}};`;
+    document.cookie = `utm_v={$utm_v};`;
   } else if (document.cookie.indexOf("award_pop_seen=") < 0) {
     var cookieArr = document.cookie.split(";");
     for (var i = 0; i < cookieArr.length; i++) {
