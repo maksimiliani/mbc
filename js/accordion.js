@@ -28,7 +28,7 @@ var accordion = (function () {
       }
 
       // reveal the active accordion bodies
-      $('.accordion-item.active').find('> .accordion-answer').show();
+      $('.accordion-item').find('> .accordion-answer').hide();
     },
     toggle: function ($this) {
 
