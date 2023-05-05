@@ -228,6 +228,17 @@ $(document).ready(function () {
     }
   });
 
+  //additional rule for anchor links
+  $(".nav-link-C").click(function () {
+    if (menu_opened) {
+      $('.navbar-master').removeClass('opened');
+      menu_opened = false;
+      update_header(null);
+      if (the_nav_megamenu[0]) the_nav_megamenu[0].style.backgroundColor = 'rgb(255, 255, 255)';
+      $('html, body').css({ overflow: 'auto' });
+    }
+  });
+
   $(".service-hidden").click(function () {
     if (!service_opened) {
       service_opened = true;
