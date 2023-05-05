@@ -229,7 +229,7 @@ $(document).ready(function () {
   });
 
   //additional rule for anchor links
-  $(".nav-link-C").click(function () {
+  $(".nav-link-c").click(function () {
     if (menu_opened) {
       $('.navbar-master').removeClass('opened');
       menu_opened = false;
