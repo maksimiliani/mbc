@@ -1,4 +1,4 @@
-import getTitleAtUrl from 'sitemap/node_modules/get-title-at-url';
+import getTitleAtUrl from './sitemap/node_modules/get-title-at-url';
 
 var ul;
 
