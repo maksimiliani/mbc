@@ -1,3 +1,5 @@
+import getTitleAtUrl from 'sitemap/node_modules/get-title-at-url';
+
 var ul;
 
 window.addEventListener("load", function () {
@@ -31,6 +33,7 @@ function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
     for (i = 0; i < xmlNodes.length; i++) {
         let li = document.createElement("li");
         let lnk = document.createElement("a");
+        lnk.innerHTML = getTitleAtUrl(url);
         lnk.setAttribute("href", xmlNodes[i].firstChild.innerHTML);
         lnk.appendChild(document.createTextNode(xmlNodes[i].firstChild.innerHTML));
         li.appendChild(lnk);
