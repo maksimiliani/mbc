@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.querySelectorAll('#blog-content h2').forEach((element) => {
         let opt = document.createElement('li');
         opt.innerHTML = element.textContent;
-       toc_list.appendChild(opt);
+        element.setAttribute("id", element.textContent);
+        opt.setAttribute("href", "#"+element.textContent);
+        toc_list.appendChild(opt);
         h2_total++;
     });
 
