@@ -4,11 +4,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     toc_list.innerHTML = '';
 
     document.querySelectorAll('#blog-content h2').forEach((element) => {
-        let opt = document.createElement('li');
+        let optli = document.createElement('li');
+        let opt = document.createElement('a');
         opt.innerHTML = element.textContent;
         element.setAttribute("id", element.textContent);
         opt.setAttribute("href", "#"+element.textContent);
-        toc_list.appendChild(opt);
+        optli.appendChild(opt)
+        toc_list.appendChild(optli);
         h2_total++;
     });
 
