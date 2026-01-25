@@ -34,38 +34,22 @@ function showResult(xmlhttp, targetId) {
     removeWhitespace(xmlDoc);
     var target = document.getElementById(targetId);
     if (!target) return;
-    var list = target.querySelector('ul');
-    if (!list) {
-        list = document.createElement('ul');
-        target.appendChild(list);
-    }
     var rowData = xmlDoc.getElementsByTagName('url');
-    list.innerHTML = '';
-    addListItemsFromXmlDoc(rowData, list);
+    target.innerHTML = '';
+    addItemsFromXmlDoc(rowData, target);
 }
 
-function addListItemsFromXmlDoc(xmlNodes, listNode) {
+function addItemsFromXmlDoc(xmlNodes, targetNode) {
     for (var i = 0; i < xmlNodes.length; i++) {
         var loc = xmlNodes[i].getElementsByTagName('loc')[0];
         if (!loc || !loc.textContent) continue;
         var url = loc.textContent.trim();
-        var li = document.createElement('li');
+        var p = document.createElement('p');
         var lnk = document.createElement('a');
         lnk.setAttribute('href', url);
-        lnk.appendChild(document.createTextNode(prettyLabel(url)));
-        li.appendChild(lnk);
-        listNode.appendChild(li);
-    }
-}
-
-function prettyLabel(url) {
-    try {
-        var parsed = new URL(url, window.location.origin);
-        var path = parsed.pathname.replace(/\/$/, '');
-        if (!path || path === '/') return parsed.origin;
-        return path.split('/').pop();
-    } catch (_) {
-        return url;
+        lnk.appendChild(document.createTextNode(url));
+        p.appendChild(lnk);
+        targetNode.appendChild(p);
     }
 }
 
