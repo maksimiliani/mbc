@@ -1,43 +1,71 @@
-import getTitleAtUrl from './sitemap/node_modules/get-title-at-url';
+var DEFAULT_SITEMAP_URL = '/sitemap/sitemap.xml';
+var DEFAULT_TARGET_ID = 'sitemap_content';
 
-var ul;
-
-window.addEventListener("load", function () {
-    getRows();
+window.addEventListener('load', function () {
+    buildSitemap();
 });
 
-function getRows() {
+window.buildSitemap = function (options) {
+    var opts = options || {};
+    var sitemapUrl = opts.sitemapUrl || DEFAULT_SITEMAP_URL;
+    var targetId = opts.targetId || DEFAULT_TARGET_ID;
+    getRows(sitemapUrl, targetId);
+};
+
+function getRows(sitemapUrl, targetId) {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "../sitemap.xml", true);
+    xmlhttp.open('get', sitemapUrl, true);
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            showResult(this);
+        if (this.readyState !== 4) return;
+        if (this.status === 200) {
+            showResult(this, targetId);
+            return;
+        }
+        if (sitemapUrl !== '../sitemap/sitemap.xml') {
+            getRows('../sitemap/sitemap.xml', targetId);
         }
     };
     xmlhttp.send(null);
 }
 
-function showResult(xmlhttp) {
-    var xmlDoc = xmlhttp.responseXML.documentElement;
+function showResult(xmlhttp, targetId) {
+    var xmlDoc = xmlhttp.responseXML && xmlhttp.responseXML.documentElement;
+    if (!xmlDoc) return;
     removeWhitespace(xmlDoc);
-    ul = document.getElementById("sitemap");
-    ul = ul.getElementsByTagName("ul")[0];
-    var rowData = xmlDoc.getElementsByTagName("url");
-    ul.innerHTML = '';
-
-    addTableRowsFromXmlDoc(rowData, ul);
+    var target = document.getElementById(targetId);
+    if (!target) return;
+    var list = target.querySelector('ul');
+    if (!list) {
+        list = document.createElement('ul');
+        target.appendChild(list);
+    }
+    var rowData = xmlDoc.getElementsByTagName('url');
+    list.innerHTML = '';
+    addListItemsFromXmlDoc(rowData, list);
 }
 
-function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
-
-    for (i = 0; i < xmlNodes.length; i++) {
-        let li = document.createElement("li");
-        let lnk = document.createElement("a");
-        lnk.innerHTML = getTitleAtUrl(url);
-        lnk.setAttribute("href", xmlNodes[i].firstChild.innerHTML);
-        lnk.appendChild(document.createTextNode(xmlNodes[i].firstChild.innerHTML));
+function addListItemsFromXmlDoc(xmlNodes, listNode) {
+    for (var i = 0; i < xmlNodes.length; i++) {
+        var loc = xmlNodes[i].getElementsByTagName('loc')[0];
+        if (!loc || !loc.textContent) continue;
+        var url = loc.textContent.trim();
+        var li = document.createElement('li');
+        var lnk = document.createElement('a');
+        lnk.setAttribute('href', url);
+        lnk.appendChild(document.createTextNode(prettyLabel(url)));
         li.appendChild(lnk);
-        tableNode.appendChild(li);
+        listNode.appendChild(li);
+    }
+}
+
+function prettyLabel(url) {
+    try {
+        var parsed = new URL(url, window.location.origin);
+        var path = parsed.pathname.replace(/\/$/, '');
+        if (!path || path === '/') return parsed.origin;
+        return path.split('/').pop();
+    } catch (_) {
+        return url;
     }
 }
 
